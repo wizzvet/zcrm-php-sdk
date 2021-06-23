@@ -139,7 +139,7 @@ class ZohoOAuthClient
 	private function getTokensFromJSON($responseObj)
 	{
 		$oAuthTokens = new ZohoOAuthTokens();
-		$expiresIn = $responseObj[ZohoOAuthConstants::EXPIRES_IN]+1000;
+		$expiresIn = $responseObj[ZohoOAuthConstants::EXPIRES_IN]*1000;
 		$oAuthTokens->setExpiryTime($oAuthTokens->getCurrentTimeInMillis()+$expiresIn);
 	
 		$accessToken = $responseObj[ZohoOAuthConstants::ACCESS_TOKEN];
